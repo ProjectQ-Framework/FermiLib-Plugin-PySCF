@@ -184,7 +184,7 @@ def run_pyscf(molecule,
     if (run_cisd or run_ccsd) and molecule.multiplicity != 1:
         print("WARNING: CISD and CCSD not implemented for "
               "non-singlet states in PySCF.")
-        run_cisd = run_ccsd  = False
+        run_cisd = run_ccsd = False
 
     # Run CISD.
     if run_cisd:

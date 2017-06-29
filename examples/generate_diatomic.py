@@ -40,12 +40,12 @@ if __name__ == '__main__':
                                  description)
 
         molecule = run_pyscf(molecule,
-                            run_scf=run_scf,
-                            run_mp2=run_mp2,
-                            run_cisd=run_cisd,
-                            run_ccsd=run_ccsd,
-                            run_fci=run_fci,
-                            verbose=verbose)
+                             run_scf=run_scf,
+                             run_mp2=run_mp2,
+                             run_cisd=run_cisd,
+                             run_ccsd=run_ccsd,
+                             run_fci=run_fci,
+                             verbose=verbose)
         molecule.save()
 
     # Run Li H single point
@@ -59,10 +59,10 @@ if __name__ == '__main__':
                              description)
 
     molecule = run_pyscf(molecule,
-                        run_scf=run_scf,
-                        run_mp2=run_mp2,
-                        run_cisd=run_cisd,
-                        run_ccsd=run_ccsd,
-                        run_fci=run_fci,
-                        verbose=verbose)
+                         run_scf=run_scf,
+                         run_mp2=run_mp2,
+                         run_cisd=run_cisd,
+                         run_ccsd=run_ccsd,
+                         run_fci=run_fci,
+                         verbose=verbose)
     molecule.save()
