@@ -24,7 +24,9 @@ def prepare_pyscf_molecule(molecule):
     pyscf_molecule.basis = molecule.basis
     pyscf_molecule.spin = molecule.multiplicity - 1
     pyscf_molecule.charge = molecule.charge
+    pyscf_molecule.symmetry = False
     pyscf_molecule.build()
+
     return pyscf_molecule
 
 
@@ -56,7 +58,7 @@ def compute_integrals(pyscf_molecule, pyscf_scf):
         two_electron_integrals: An N by N by N by N array storing h_{pqrs}.
     """
     # Get one electrons integrals.
-    n_orbitals = pyscf_molecule.nbas
+    n_orbitals = pyscf_scf.mo_coeff.shape[0]
     one_electron_compressed = reduce(numpy.dot, (pyscf_scf.mo_coeff.T,
                                                  pyscf_scf.get_hcore(),
                                                  pyscf_scf.mo_coeff))
@@ -177,6 +179,12 @@ def run_pyscf(molecule,
         if verbose:
             print('MP2 energy for {} ({} electrons) is {}.'.format(
                 molecule.name, molecule.n_electrons, molecule.mp2_energy))
+
+    # Disable non-singlets for now for CI and CC due to not being implemented
+    if (run_cisd or run_ccsd) and molecule.multiplicity != 1:
+        print("WARNING: CISD and CCSD not implemented for "
+              "non-singlet states in PySCF.")
+        run_cisd = run_ccsd  = False
 
     # Run CISD.
     if run_cisd:
