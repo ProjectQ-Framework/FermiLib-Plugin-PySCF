@@ -1,3 +1,15 @@
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
 """Class and functions to store quantum chemistry data."""
 from __future__ import absolute_import
 
@@ -139,6 +151,7 @@ def run_pyscf(molecule,
     Args:
         molecule: An instance of the MolecularData class.
         run_scf: Optional boolean to run SCF calculation.
+        run_mp2: Optional boolean to run MP2 calculation.
         run_cisd: Optional boolean to run CISD calculation.
         run_ccsd: Optional boolean to run CCSD calculation.
         run_fci: Optional boolean to FCI calculation.
@@ -218,38 +231,3 @@ def run_pyscf(molecule,
     # Return updated molecule instance.
     molecule.save()
     return molecule
-
-
-# Test.
-if __name__ == '__main__':
-
-    # Molecule parameters.
-    basis = 'sto-3g'
-    multiplicity = 1
-    bond_length = 0.7414
-    description = str(bond_length)
-    geometry = [['H', (0, 0, 0)], ['H', (0, 0, bond_length)]]
-
-    # Calculation parameters.
-    run_scf = 1
-    run_mp2 = 1
-    run_cisd = 1
-    run_ccsd = 1
-    run_fci = 1
-    verbose = 0
-
-    # Get molecule and run calculation.
-    from fermilib.utils import MolecularData
-    molecule = MolecularData(
-        geometry, basis, multiplicity, description=description)
-    if 1:
-        molecule = run_pyscf(
-            molecule, run_scf, run_mp2, run_cisd, run_ccsd, run_fci, verbose)
-    else:
-        from fermilibpluginpsi4 import run_psi4
-        molecule = run_psi4(
-            molecule, run_scf, run_mp2, run_cisd, run_ccsd, run_fci, verbose)
-
-    # Get molecular Hamiltonian.
-    molecular_hamiltonian = molecule.get_molecular_hamiltonian()
-    print molecular_hamiltonian
