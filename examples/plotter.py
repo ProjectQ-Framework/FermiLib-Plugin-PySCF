@@ -11,8 +11,8 @@
 #   limitations under the License.
 
 """These functions compare properties of different molecules."""
+import matplotlib.pyplot
 import numpy
-import pylab
 import warnings
 
 from fermilib.utils import (make_atom, make_atomic_ring,
@@ -43,10 +43,10 @@ def latex_name(molecule):
 if __name__ == '__main__':
 
     # Set plot parameters.
-    pylab.rcParams['text.usetex'] = True
-    pylab.rcParams['text.latex.unicode'] = True
-    pylab.rc('text', usetex=True)
-    pylab.rc('font', family='sans=serif')
+    matplotlib.pyplot.rcParams['text.usetex'] = True
+    matplotlib.pyplot.rcParams['text.latex.unicode'] = True
+    matplotlib.pyplot.rc('text', usetex=True)
+    matplotlib.pyplot.rc('font', family='sans=serif')
     marker_size = 6
     line_width = 2
     axis_size = 12
@@ -89,18 +89,18 @@ if __name__ == '__main__':
         print('{} for {} = {}.'.format(y_label, molecule.name, y_values[-1]))
 
     # Plot.
-    pylab.figure(0)
-    pylab.plot(x_values, y_values, lw=0, marker='o')
+    matplotlib.pyplot.figure(0)
+    matplotlib.pyplot.plot(x_values, y_values, lw=0, marker='o')
 
     # Set log scales.
     if y_log:
-        pylab.yscale('log')
+        matplotlib.pyplot.yscale('log')
     if x_log:
-        pylab.xscale('log')
+        matplotlib.pyplot.xscale('log')
 
     # Finish making the plot.
-    pylab.xticks(size=axis_size)
-    pylab.yticks(size=axis_size)
-    pylab.xlabel(r'%s' % x_label, fontsize=font_size)
-    pylab.ylabel(r'%s' % y_label, fontsize=font_size)
-    pylab.show()
+    matplotlib.pyplot.xticks(size=axis_size)
+    matplotlib.pyplot.yticks(size=axis_size)
+    matplotlib.pyplot.xlabel(r'%s' % x_label, fontsize=font_size)
+    matplotlib.pyplot.ylabel(r'%s' % y_label, fontsize=font_size)
+    matplotlib.pyplot.show()
