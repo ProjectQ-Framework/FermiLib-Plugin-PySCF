@@ -10,13 +10,5 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-"""
-FermiLib plugin to interface with PySCF.
-"""
-
-from ._version import __version__
-
-try:
-	from ._run_pyscf import run_pyscf
-except ImportError:
-	raise Exception("Please install PySCF.")
+"""Define version number here and read it from setup.py automatically"""
+__version__ = "0.1a0"
