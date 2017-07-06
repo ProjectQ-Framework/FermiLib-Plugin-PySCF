@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-# This reads the __version__ variable from projectq/_version.py
+# This reads the __version__ variable from fermilibpluginpyscf/_version.py
 exec(open('fermilibpluginpyscf/_version.py').read())
 # Readme file as long_description:
 long_description = open('README.rst').read()
