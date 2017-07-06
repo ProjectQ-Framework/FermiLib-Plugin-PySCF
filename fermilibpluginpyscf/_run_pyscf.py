@@ -23,8 +23,8 @@ from fermilib.config import *
 
 
 def prepare_pyscf_molecule(molecule):
-
-    """This function creates and saves a pyscf input file.
+    """
+    This function creates and saves a pyscf input file.
 
     Args:
         molecule: An instance of the MolecularData class.
@@ -44,8 +44,8 @@ def prepare_pyscf_molecule(molecule):
 
 
 def compute_scf(pyscf_molecule):
-
-    """Perform a Hartree-Fock calculation.
+    """
+    Perform a Hartree-Fock calculation.
 
     Args:
         pyscf_molecule: A pyscf molecule instance.
@@ -61,7 +61,8 @@ def compute_scf(pyscf_molecule):
 
 
 def compute_integrals(pyscf_molecule, pyscf_scf):
-    """Compute the 1-electron and 2-electron integrals.
+    """
+    Compute the 1-electron and 2-electron integrals.
 
     Args:
         pyscf_molecule: A pyscf molecule instance.
@@ -148,8 +149,8 @@ def run_pyscf(molecule,
               run_ccsd=False,
               run_fci=False,
               verbose=False):
-
-    """This function runs a pyscf calculation.
+    """
+    This function runs a pyscf calculation.
 
     Args:
         molecule: An instance of the MolecularData class.
