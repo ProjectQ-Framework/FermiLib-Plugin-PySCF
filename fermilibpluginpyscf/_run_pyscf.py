@@ -23,6 +23,7 @@ from fermilib.config import *
 
 
 def prepare_pyscf_molecule(molecule):
+
     """This function creates and saves a pyscf input file.
 
     Args:
@@ -43,6 +44,7 @@ def prepare_pyscf_molecule(molecule):
 
 
 def compute_scf(pyscf_molecule):
+
     """Perform a Hartree-Fock calculation.
 
     Args:
@@ -146,6 +148,7 @@ def run_pyscf(molecule,
               run_ccsd=False,
               run_fci=False,
               verbose=False):
+
     """This function runs a pyscf calculation.
 
     Args:
