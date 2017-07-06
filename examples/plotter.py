@@ -12,14 +12,11 @@
 
 """These functions compare properties of different molecules."""
 import numpy
+import pylab
 import warnings
 
 from fermilib.utils import (make_atom, make_atomic_ring,
                             MolecularData, periodic_table)
-
-with warnings.catch_warnings():
-    warnings.simplefilter('ignore')
-    import pylab
 
 
 def latex_name(molecule):
