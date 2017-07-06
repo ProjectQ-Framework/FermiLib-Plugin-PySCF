@@ -146,7 +146,7 @@ def run_pyscf(molecule,
               run_ccsd=False,
               run_fci=False,
               verbose=False):
-    """This function runs a Psi4 calculation.
+    """This function runs a pyscf calculation.
 
     Args:
         molecule: An instance of the MolecularData class.
