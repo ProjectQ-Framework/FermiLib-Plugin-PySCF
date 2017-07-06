@@ -1,5 +1,3 @@
-import os
-
 from setuptools import setup, find_packages
 
 # This reads the __version__ variable from fermilibpluginpyscf/_version.py

@@ -14,5 +14,9 @@
 FermiLib plugin to interface with PySCF.
 """
 
-from ._run_pyscf import run_pyscf
 from ._version import __version__
+
+try:
+	from ._run_pyscf import run_pyscf
+except ImportError:
+	raise Exception("Please install PySCF.")
